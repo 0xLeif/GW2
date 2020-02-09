@@ -1,5 +1,7 @@
 # GW2
 
+![Swift](https://github.com/zmeriksen/GW2/workflows/Swift/badge.svg?branch=master)
+
 A [GW2 API](https://wiki.guildwars2.com/wiki/API:2) Wrapper written in Swift
 
 
