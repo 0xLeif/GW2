@@ -11,7 +11,7 @@ import Combine
 public class API {
     public enum Route: String {
         case account
-        case account_achievments
+        case account_achievements
     }
     
     public static var instance: API = {
