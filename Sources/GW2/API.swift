@@ -30,6 +30,8 @@ public class API {
 
 // MARK: Helper Functions
 public extension API {
+    
+    @discardableResult
     func configure(apiKey: String) -> Self {
         self.apiKey = apiKey
         
