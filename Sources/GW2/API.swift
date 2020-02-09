@@ -11,7 +11,7 @@ import Combine
 public class API {
     public enum Route: String {
         case account
-        case account_achievments
+        case account_achievements
     }
     
     public static var instance: API = {
@@ -75,5 +75,9 @@ public extension API {
 public extension API {
     func account() -> AnyPublisher<Account, Error> {
         return get(route: .account)
+    }
+    
+    func achievements() -> AnyPublisher<[Achievement], Error> {
+        return get(route: .account_achievements)
     }
 }
