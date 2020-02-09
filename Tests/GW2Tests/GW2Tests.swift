@@ -7,7 +7,7 @@ final class GW2Tests: XCTestCase {
     
     override func setUp() {
         // MARK: Set an API Key
-        API.instance.configure(apiKey: "API Key")
+        API.instance.configure(apiKey: "67919F8B-CC0B-E14E-AF89-C0C766927467DD23768D-1E22-4294-9EDE-FFD6D02000A6")
     }
     
     override func tearDown() {
