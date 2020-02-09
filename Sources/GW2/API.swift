@@ -78,6 +78,6 @@ public extension API {
     }
     
     func achievements() -> AnyPublisher<[Achievement], Error> {
-        return get(route: .account_achievments)
+        return get(route: .account_achievements)
     }
 }
