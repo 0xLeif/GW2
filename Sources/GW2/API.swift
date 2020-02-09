@@ -76,4 +76,8 @@ public extension API {
     func account() -> AnyPublisher<Account, Error> {
         return get(route: .account)
     }
+    
+    func achievements() -> AnyPublisher<[Achievement], Error> {
+        return get(route: .account_achievments)
+    }
 }
