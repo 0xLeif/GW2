@@ -41,10 +41,23 @@ final class GW2Tests: XCTestCase {
         
         expectToEventually(testAchievements != nil)
     }
+    
+    func testBank() {
+        var testBank: [Item?]?
+        
+        API.instance.bank()
+            .value { (bank) in
+            testBank = bank
+        }
+        .store(in: &bag)
+        
+        expectToEventually(testBank != nil)
+    }
 
     static var allTests = [
         ("testAPIKey", testAPIKey),
         ("testAccount", testAccount),
-        ("testAchievements", testAchievements)
+        ("testAchievements", testAchievements),
+        ("testBank", testBank)
     ]
 }
