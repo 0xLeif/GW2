@@ -12,6 +12,7 @@ public class API {
     public enum Route: String {
         case account
         case account_achievements
+        case account_bank
     }
     
     public static var instance: API = {
@@ -45,7 +46,7 @@ public extension API {
             .mapError { $0 as Error }
             .compactMap {
                 do {
-                    return try JSONSerialization.jsonObject(with: $0.data, options: .allowFragments)
+                    return try JSONSerialization.jsonObject(with: $0.data, options: [])
                 } catch {
                     print("Error: \(error)")
                     return nil
@@ -79,5 +80,9 @@ public extension API {
     
     func achievements() -> AnyPublisher<[Achievement], Error> {
         return get(route: .account_achievements)
+    }
+    
+    func bank() -> AnyPublisher<[Item?], Error> {
+        return get(route: .account_bank)
     }
 }
