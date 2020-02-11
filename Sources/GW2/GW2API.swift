@@ -1,5 +1,5 @@
 //
-//  API.swift
+//  GW2API.swift
 //  
 //
 //  Created by Zach Eriksen on 2/8/20.
@@ -8,14 +8,15 @@
 import Foundation
 import Combine
 
-public class API {
+public class GW2API {
     public enum Route: String {
         case account
         case account_achievements
+        case account_bank
     }
     
-    public static var instance: API = {
-        API()
+    public static var instance: GW2API = {
+        GW2API()
     }()
     
     // Configuations
@@ -29,7 +30,7 @@ public class API {
 }
 
 // MARK: Helper Functions
-public extension API {
+public extension GW2API {
     
     @discardableResult
     func configure(apiKey: String) -> Self {
@@ -45,7 +46,7 @@ public extension API {
             .mapError { $0 as Error }
             .compactMap {
                 do {
-                    return try JSONSerialization.jsonObject(with: $0.data, options: .allowFragments)
+                    return try JSONSerialization.jsonObject(with: $0.data, options: [])
                 } catch {
                     print("Error: \(error)")
                     return nil
@@ -72,12 +73,16 @@ public extension API {
 }
 
 // MARK: API Route Functions
-public extension API {
+public extension GW2API {
     func account() -> AnyPublisher<Account, Error> {
         return get(route: .account)
     }
     
     func achievements() -> AnyPublisher<[Achievement], Error> {
         return get(route: .account_achievements)
+    }
+    
+    func bank() -> AnyPublisher<[Item?], Error> {
+        return get(route: .account_bank)
     }
 }

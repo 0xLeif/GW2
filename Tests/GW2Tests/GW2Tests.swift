@@ -7,7 +7,7 @@ final class GW2Tests: XCTestCase {
     
     override func setUp() {
         // MARK: Set an API Key
-        API.instance.configure(apiKey: "67919F8B-CC0B-E14E-AF89-C0C766927467DD23768D-1E22-4294-9EDE-FFD6D02000A6")
+        GW2API.instance.configure(apiKey: "67919F8B-CC0B-E14E-AF89-C0C766927467DD23768D-1E22-4294-9EDE-FFD6D02000A6")
     }
     
     override func tearDown() {
@@ -15,13 +15,13 @@ final class GW2Tests: XCTestCase {
     }
     
     func testAPIKey() {
-        XCTAssert(API.instance.apiKey != nil)
+        XCTAssert(GW2API.instance.apiKey != nil)
     }
     
     func testAccount() {
         var testAccount: Account?
         
-        API.instance.account()
+        GW2API.instance.account()
             .value { (account) in
             testAccount = account
         }
@@ -33,7 +33,7 @@ final class GW2Tests: XCTestCase {
     func testAchievements() {
         var testAchievements: [Achievement]?
         
-        API.instance.achievements()
+        GW2API.instance.achievements()
             .value { (achievements) in
             testAchievements = achievements
         }
@@ -41,10 +41,23 @@ final class GW2Tests: XCTestCase {
         
         expectToEventually(testAchievements != nil)
     }
+    
+    func testBank() {
+        var testBank: [Item?]?
+        
+        GW2API.instance.bank()
+            .value { (bank) in
+            testBank = bank
+        }
+        .store(in: &bag)
+        
+        expectToEventually(testBank != nil)
+    }
 
     static var allTests = [
         ("testAPIKey", testAPIKey),
         ("testAccount", testAccount),
-        ("testAchievements", testAchievements)
+        ("testAchievements", testAchievements),
+        ("testBank", testBank)
     ]
 }
