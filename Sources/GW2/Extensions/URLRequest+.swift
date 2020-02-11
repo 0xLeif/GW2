@@ -9,7 +9,7 @@ import Foundation
 
 public extension URLRequest {
     mutating func dataTaskPublish(method: String = "GET", withBody body: Data? = nil) -> URLSession.DataTaskPublisher {
-        guard let apiKey = API.instance.apiKey else {
+        guard let apiKey = GW2API.instance.apiKey else {
             fatalError("You have not set the GW2 API Key")
         }
         

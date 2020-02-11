@@ -1,5 +1,5 @@
 //
-//  API.swift
+//  GW2API.swift
 //  
 //
 //  Created by Zach Eriksen on 2/8/20.
@@ -8,15 +8,15 @@
 import Foundation
 import Combine
 
-public class API {
+public class GW2API {
     public enum Route: String {
         case account
         case account_achievements
         case account_bank
     }
     
-    public static var instance: API = {
-        API()
+    public static var instance: GW2API = {
+        GW2API()
     }()
     
     // Configuations
@@ -30,7 +30,7 @@ public class API {
 }
 
 // MARK: Helper Functions
-public extension API {
+public extension GW2API {
     
     @discardableResult
     func configure(apiKey: String) -> Self {
@@ -73,7 +73,7 @@ public extension API {
 }
 
 // MARK: API Route Functions
-public extension API {
+public extension GW2API {
     func account() -> AnyPublisher<Account, Error> {
         return get(route: .account)
     }
