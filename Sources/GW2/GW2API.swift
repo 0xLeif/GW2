@@ -100,8 +100,4 @@ public extension GW2API {
     func dyes() -> AnyPublisher<[Int], Error> {
         get(route: .account_dyes)
     }
-    
-    func bank() -> AnyPublisher<[Item?], Error> {
-        return get(route: .account_bank)
-    }
 }
