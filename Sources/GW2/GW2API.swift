@@ -13,6 +13,9 @@ public class GW2API {
         case account
         case account_achievements
         case account_bank
+        case account_dailycrafting
+        case account_dungeons
+        case account_dyes
     }
     
     public static var instance: GW2API = {
@@ -75,11 +78,27 @@ public extension GW2API {
 // MARK: API Route Functions
 public extension GW2API {
     func account() -> AnyPublisher<Account, Error> {
-        return get(route: .account)
+        get(route: .account)
     }
     
     func achievements() -> AnyPublisher<[Achievement], Error> {
-        return get(route: .account_achievements)
+        get(route: .account_achievements)
+    }
+    
+    func bank() -> AnyPublisher<[Item?], Error> {
+        get(route: .account_bank)
+    }
+    
+    func dailycrafting() -> AnyPublisher<[String], Error> {
+        get(route: .account_dailycrafting)
+    }
+    
+    func dungeons() -> AnyPublisher<[String], Error> {
+        get(route: .account_dungeons)
+    }
+    
+    func dyes() -> AnyPublisher<[Int], Error> {
+        get(route: .account_dyes)
     }
     
     func bank() -> AnyPublisher<[Item?], Error> {

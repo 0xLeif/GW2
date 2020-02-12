@@ -22,8 +22,8 @@ final class GW2Tests: XCTestCase {
         var testAccount: Account?
         
         GW2API.instance.account()
-            .value { (account) in
-            testAccount = account
+            .value { account in
+                testAccount = account
         }
         .store(in: &bag)
         
@@ -34,8 +34,8 @@ final class GW2Tests: XCTestCase {
         var testAchievements: [Achievement]?
         
         GW2API.instance.achievements()
-            .value { (achievements) in
-            testAchievements = achievements
+            .value { achievements in
+                testAchievements = achievements
         }
         .store(in: &bag)
         
@@ -46,18 +46,57 @@ final class GW2Tests: XCTestCase {
         var testBank: [Item?]?
         
         GW2API.instance.bank()
-            .value { (bank) in
-            testBank = bank
+            .value { bank in
+                testBank = bank
         }
         .store(in: &bag)
         
         expectToEventually(testBank != nil)
     }
-
+    
+    func testDailycrafting() {
+        var testDailycrafting: [String]?
+        
+        GW2API.instance.dailycrafting()
+            .value { dailycrafting in
+                testDailycrafting = dailycrafting
+        }
+        .store(in: &bag)
+        
+        expectToEventually(testDailycrafting != nil)
+    }
+    
+    func testDungeons() {
+           var testDungeons: [String]?
+           
+        GW2API.instance.dungeons()
+               .value { dungeons in
+                   testDungeons = dungeons
+           }
+           .store(in: &bag)
+           
+           expectToEventually(testDungeons != nil)
+       }
+    
+    func testDyes() {
+           var testDyes: [Int]?
+           
+           GW2API.instance.dyes()
+            .value { dyes in
+                testDyes = dyes
+           }
+           .store(in: &bag)
+           
+           expectToEventually(testDyes != nil)
+       }
+    
     static var allTests = [
         ("testAPIKey", testAPIKey),
         ("testAccount", testAccount),
         ("testAchievements", testAchievements),
-        ("testBank", testBank)
+        ("testBank", testBank),
+        ("testDailycrafting", testDailycrafting),
+        ("testDungeons", testDungeons),
+        ("testDyes", testDyes)
     ]
 }
