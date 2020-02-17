@@ -1,5 +1,5 @@
 import XCTest
-import Combine
+import OpenCombine
 @testable import GW2
 
 final class GW2Tests: XCTestCase {

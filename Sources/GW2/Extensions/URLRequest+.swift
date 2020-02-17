@@ -6,9 +6,15 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+import OpenCombine
+import OpenCombineFoundation
 
 public extension URLRequest {
-    mutating func dataTaskPublish(method: String = "GET", withBody body: Data? = nil) -> URLSession.DataTaskPublisher {
+    mutating func dataTaskPublish(method: String = "GET", withBody body: Data? = nil) -> URLSession.OCombine.DataTaskPublisher {
         guard let apiKey = GW2API.instance.apiKey else {
             fatalError("You have not set the GW2 API Key")
         }
@@ -25,7 +31,7 @@ public extension URLRequest {
             httpBody = body
         }
         
-        let session = URLSession.shared
+        let session = URLSession.shared.ocombine
         return session.dataTaskPublisher(for: self)
     }
 }
