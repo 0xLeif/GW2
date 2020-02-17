@@ -6,6 +6,11 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+import OpenCombine
 
 public extension URL {
     func request(forRoute route: GW2API.Route, withID id: Int? = nil) -> URLRequest {

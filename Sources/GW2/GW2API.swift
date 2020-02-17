@@ -6,7 +6,11 @@
 //
 
 import Foundation
-import Combine
+import OpenCombine
+
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 public class GW2API {
     public enum Route: String {

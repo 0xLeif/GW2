@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+import OpenCombine
 
 extension AnyPublisher {
     func value(_ closure: @escaping ((Output) -> Void)) -> AnyCancellable {
