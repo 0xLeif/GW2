@@ -101,6 +101,18 @@ final class GW2Tests: XCTestCase {
            
            expectToEventually(testEmotes != nil)
        }
+
+    func testFinishers() {
+           var testFinishers: [Finisher]?
+           
+        GW2API.instance.finishers()
+               .value { finishers in
+                   testFinishers = finishers
+           }
+           .store(in: &bag)
+           
+           expectToEventually(testFinishers != nil)
+       }
     
     static var allTests = [
         ("testAPIKey", testAPIKey),
@@ -110,6 +122,7 @@ final class GW2Tests: XCTestCase {
         ("testDailycrafting", testDailycrafting),
         ("testDungeons", testDungeons),
         ("testDyes", testDyes),
-        ("testEmotes", testEmotes)
+        ("testEmotes", testEmotes),
+        ("testFinishers", testFinishers)
     ]
 }

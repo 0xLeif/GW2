@@ -21,6 +21,7 @@ public class GW2API {
         case account_dungeons
         case account_dyes
         case account_emotes
+        case account_finishers
     }
     
     public static var instance: GW2API = {
@@ -108,5 +109,9 @@ public extension GW2API {
 
     func emotes() -> AnyPublisher<[String], Error> {
         get(route: .account_emotes)
+    }
+
+    func finishers() -> AnyPublisher<[Finisher], Error> {
+        get(route: .account_finishers)
     }
 }
