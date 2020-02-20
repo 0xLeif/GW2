@@ -138,6 +138,30 @@ final class GW2Tests: XCTestCase {
            expectToEventually(testHome != nil)
        }
 
+       func testHomeCats() {
+           var testHomeCats: [Int]?
+           
+           GW2API.instance.cats()
+            .value { cats in
+                testHomeCats = cats
+           }
+           .store(in: &bag)
+           
+           expectToEventually(testHomeCats != nil)
+       }
+    
+    func testHomeNodes() {
+           var testHomeNodes: [String]?
+           
+        GW2API.instance.nodes()
+               .value { nodes in
+                   testHomeNodes = nodes
+           }
+           .store(in: &bag)
+           
+           expectToEventually(testHomeNodes != nil)
+       }
+
     static var allTests = [
         ("testAPIKey", testAPIKey),
         ("testAccount", testAccount),
@@ -149,6 +173,8 @@ final class GW2Tests: XCTestCase {
         ("testEmotes", testEmotes),
         ("testFinishers", testFinishers),
         ("testGliders", testGliders),
-        ("testHome", testHome)
+        ("testHome", testHome),
+        ("testHomeCats", testHomeCats),
+        ("testHomeNodes", testHomeNodes)
     ]
 }

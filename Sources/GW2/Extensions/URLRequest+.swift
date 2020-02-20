@@ -22,7 +22,8 @@ public extension URLRequest {
         let headers = [
             "Content-Type": "application/json; charset=utf-8",
             "cache-control": "no-cache",
-            "Authorization": "Bearer \(apiKey)"
+            "Authorization": "Bearer \(apiKey)",
+            "X-Schema-Version": "2020-01-01T00:00:00Z"
         ]
         
         httpMethod = method
