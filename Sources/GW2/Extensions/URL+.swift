@@ -6,9 +6,14 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+import OpenCombine
 
 public extension URL {
-    func request(forRoute route: API.Route, withID id: Int? = nil) -> URLRequest {
+    func request(forRoute route: GW2API.Route, withID id: Int? = nil) -> URLRequest {
         let path = route.rawValue.replacingOccurrences(of: "_", with: "/")
         
         guard let id = id else {
