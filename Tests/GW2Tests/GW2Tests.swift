@@ -174,6 +174,18 @@ final class GW2Tests: XCTestCase {
            expectToEventually(testInventory != nil)
        }
 
+    func testLuck() {
+           var testLuck: [Luck]?
+           
+        GW2API.instance.luck()
+               .value { luck in
+                   testLuck = luck
+           }
+           .store(in: &bag)
+
+           expectToEventually(testLuck != nil)
+       }
+
     static var allTests = [
         ("testAPIKey", testAPIKey),
         ("testAccount", testAccount),
@@ -188,6 +200,7 @@ final class GW2Tests: XCTestCase {
         ("testHome", testHome),
         ("testHomeCats", testHomeCats),
         ("testHomeNodes", testHomeNodes),
-        ("testInventory", testInventory)
+        ("testInventory", testInventory),
+        ("testLuck", testLuck)
     ]
 }
