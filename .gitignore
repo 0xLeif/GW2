@@ -3,5 +3,8 @@
 /Packages
 /*.xcodeproj
 xcuserdata/
-*.sw*
+*.swp
+*.swn
+*.swo
+*.swm
 Package.resolved
