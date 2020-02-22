@@ -198,6 +198,18 @@ final class GW2Tests: XCTestCase {
     expectToEventually(testMailCarriers != nil)
   }
 
+  func testMapChests() {
+    var testMapChests: [String]?
+
+    GW2API.instance.mapchests()
+    .value { chests in
+      testMapChests = chests
+    }
+    .store(in: &bag)
+
+    expectToEventually(testMapChests != nil)
+  }
+
   static var allTests = [
     ("testAPIKey", testAPIKey),
     ("testAccount", testAccount),
@@ -214,6 +226,7 @@ final class GW2Tests: XCTestCase {
     ("testHomeNodes", testHomeNodes),
     ("testInventory", testInventory),
     ("testLuck", testLuck),
-    ("testMailCarriers", testMailCarriers)
+    ("testMailCarriers", testMailCarriers),
+    ("testMapChests", testMapChests)
   ]
 }
