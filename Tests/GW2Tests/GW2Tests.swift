@@ -162,6 +162,18 @@ final class GW2Tests: XCTestCase {
            expectToEventually(testHomeNodes != nil)
        }
 
+    func testInventory() {
+           var testInventory: [Item?]?
+           
+        GW2API.instance.inventory()
+               .value { inventory in
+                   testInventory = inventory
+           }
+           .store(in: &bag)
+           
+           expectToEventually(testInventory != nil)
+       }
+
     static var allTests = [
         ("testAPIKey", testAPIKey),
         ("testAccount", testAccount),
@@ -175,6 +187,7 @@ final class GW2Tests: XCTestCase {
         ("testGliders", testGliders),
         ("testHome", testHome),
         ("testHomeCats", testHomeCats),
-        ("testHomeNodes", testHomeNodes)
+        ("testHomeNodes", testHomeNodes),
+        ("testInventory", testInventory)
     ]
 }

@@ -26,6 +26,7 @@ public class GW2API {
         case account_home
         case account_home_cats
         case account_home_nodes
+        case account_inventory
     }
     
     public static var instance: GW2API = {
@@ -133,5 +134,9 @@ public extension GW2API {
 
     func nodes() -> AnyPublisher<[String], Error> {
         get(route: .account_home_nodes)
+    }
+
+    func inventory() -> AnyPublisher<[Item?], Error> {
+        get(route: .account_inventory)
     }
 }
