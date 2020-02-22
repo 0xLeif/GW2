@@ -222,6 +222,18 @@ final class GW2Tests: XCTestCase {
     expectToEventually(testMasteries != nil)
   }
 
+  func testMaterials() {
+    var testMaterials: [Material]?
+
+    GW2API.instance.materials()
+    .value { materials in
+      testMaterials = materials
+    }
+    .store(in: &bag)
+
+    expectToEventually(testMaterials != nil)
+  }
+
   static var allTests = [
     ("testAPIKey", testAPIKey),
     ("testAccount", testAccount),
@@ -240,6 +252,7 @@ final class GW2Tests: XCTestCase {
     ("testLuck", testLuck),
     ("testMailCarriers", testMailCarriers),
     ("testMapChests", testMapChests),
-    ("testMasteries", testMasteries)
+    ("testMasteries", testMasteries),
+    ("testMaterials", testMaterials)
   ]
 }

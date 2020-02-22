@@ -34,9 +34,9 @@ import Foundation
 
 */
 public struct Mastery: Codable {
-  let region: String
-  let spent: Int
-  let earned: Int
+    public let region: String
+    public let spent: Int
+    public let earned: Int
 }
 
 public struct Masteries: Codable {
