@@ -182,7 +182,7 @@ final class GW2Tests: XCTestCase {
                    testLuck = luck
            }
            .store(in: &bag)
-           
+
            expectToEventually(testLuck != nil)
        }
 
