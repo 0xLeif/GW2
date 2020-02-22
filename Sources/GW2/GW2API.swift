@@ -32,6 +32,7 @@ public class GW2API {
         case account_mapchests
         case account_mastery_points
         case account_materials
+        case account_minis
     }
     
     public static var instance: GW2API = {
@@ -163,5 +164,9 @@ public extension GW2API {
 
     func materials() -> AnyPublisher<[Material], Error> {
         get(route: .account_materials)
+    }
+
+    func minis() -> AnyPublisher<[Int], Error> {
+        get(route: .account_minis)
     }
 }
