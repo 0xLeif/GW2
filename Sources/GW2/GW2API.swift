@@ -26,6 +26,13 @@ public class GW2API {
         case account_home
         case account_home_cats
         case account_home_nodes
+        case account_inventory
+        case account_luck
+        case account_mailcarriers
+        case account_mapchests
+        case account_mastery_points
+        case account_materials
+        case account_minis
     }
     
     public static var instance: GW2API = {
@@ -133,5 +140,33 @@ public extension GW2API {
 
     func nodes() -> AnyPublisher<[String], Error> {
         get(route: .account_home_nodes)
+    }
+
+    func inventory() -> AnyPublisher<[Item?], Error> {
+        get(route: .account_inventory)
+    }
+
+    func luck() -> AnyPublisher<[Luck], Error> {
+        get(route: .account_luck)
+    }
+
+    func mailcarriers() -> AnyPublisher<[Int], Error> {
+        get(route: .account_mailcarriers)
+    }
+
+    func mapchests() -> AnyPublisher<[String], Error> {
+        get(route: .account_mapchests)
+    }
+
+    func masteries() -> AnyPublisher<Masteries, Error> {
+        get(route: .account_mastery_points)
+    }
+
+    func materials() -> AnyPublisher<[Material], Error> {
+        get(route: .account_materials)
+    }
+
+    func minis() -> AnyPublisher<[Int], Error> {
+        get(route: .account_minis)
     }
 }
