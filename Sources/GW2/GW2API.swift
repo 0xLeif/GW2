@@ -28,6 +28,7 @@ public class GW2API {
         case account_home_nodes
         case account_inventory
         case account_luck
+        case account_mailcarriers
     }
     
     public static var instance: GW2API = {
@@ -143,5 +144,9 @@ public extension GW2API {
 
     func luck() -> AnyPublisher<[Luck], Error> {
         get(route: .account_luck)
+    }
+
+    func mailcarriers() -> AnyPublisher<[Int], Error> {
+        get(route: .account_mailcarriers)
     }
 }
