@@ -31,6 +31,7 @@ public class GW2API {
         case account_mailcarriers
         case account_mapchests
         case account_mastery_points
+        case account_materials
     }
     
     public static var instance: GW2API = {
@@ -158,5 +159,9 @@ public extension GW2API {
 
     func masteries() -> AnyPublisher<Masteries, Error> {
         get(route: .account_mastery_points)
+    }
+
+    func materials() -> AnyPublisher<[Material], Error> {
+        get(route: .account_materials)
     }
 }
