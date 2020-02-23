@@ -33,6 +33,7 @@ public class GW2API {
         case account_mastery_points
         case account_materials
         case account_minis
+        case account_mounts
     }
     
     public static var instance: GW2API = {
@@ -66,6 +67,7 @@ public extension GW2API {
             .mapError { $0 as Error }
             .compactMap {
                 do {
+
                     return try JSONSerialization.jsonObject(with: $0.data, options: [])
                 } catch {
                     print("Error: \(error)")
@@ -168,5 +170,9 @@ public extension GW2API {
 
     func minis() -> AnyPublisher<[Int], Error> {
         get(route: .account_minis)
+    }
+
+    func mounts() -> AnyPublisher<[String], Error> {
+        get(route: .account_mounts)
     }
 }

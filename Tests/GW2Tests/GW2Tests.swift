@@ -246,6 +246,18 @@ final class GW2Tests: XCTestCase {
     expectToEventually(testMinis != nil)
   }
 
+  func testMounts() {
+    var testMounts: [String]?
+
+    GW2API.instance.mounts()
+            .value { mounts in
+              testMounts = mounts
+            }
+            .store(in: &bag)
+
+    expectToEventually(testMounts != nil)
+  }
+
   static var allTests = [
     ("testAPIKey", testAPIKey),
     ("testAccount", testAccount),
@@ -266,6 +278,7 @@ final class GW2Tests: XCTestCase {
     ("testMapChests", testMapChests),
     ("testMasteries", testMasteries),
     ("testMaterials", testMaterials),
-    ("testMinis", testMinis)
+    ("testMinis", testMinis),
+    ("testMounts", testMounts)
   ]
 }
