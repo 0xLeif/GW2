@@ -258,6 +258,30 @@ final class GW2Tests: XCTestCase {
     expectToEventually(testMounts != nil)
   }
 
+  func testMountSkins() {
+    var testMountSkins: [Int]?
+
+    GW2API.instance.mountSkins()
+            .value { skins in
+              testMountSkins = skins
+            }
+            .store(in: &bag)
+
+    expectToEventually(testMountSkins != nil)
+  }
+
+  func testMountTypes() {
+    var testMountTypes: [String]?
+
+    GW2API.instance.mountTypes()
+            .value { types in
+              testMountTypes = types
+            }
+            .store(in: &bag)
+
+    expectToEventually(testMountTypes != nil)
+  }
+
   static var allTests = [
     ("testAPIKey", testAPIKey),
     ("testAccount", testAccount),
@@ -279,6 +303,8 @@ final class GW2Tests: XCTestCase {
     ("testMasteries", testMasteries),
     ("testMaterials", testMaterials),
     ("testMinis", testMinis),
-    ("testMounts", testMounts)
+    ("testMounts", testMounts),
+    ("testMountSkins", testMountSkins),
+    ("testMountTypes", testMountTypes),
   ]
 }
