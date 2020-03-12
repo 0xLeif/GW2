@@ -39,6 +39,7 @@ public class GW2API {
         case account_novelties
         case account_outfits
         case account_pvp_heroes
+        case account_raids
     }
     
     public static var instance: GW2API = {
@@ -199,5 +200,9 @@ public extension GW2API {
 
     func pvpHeroes() -> AnyPublisher<[Int], Error> {
         get(route: .account_pvp_heroes)
+    }
+
+    func raids() -> AnyPublisher<[String], Error> {
+        get(route: .account_raids)
     }
 }
