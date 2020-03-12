@@ -282,6 +282,114 @@ final class GW2Tests: XCTestCase {
     expectToEventually(testMountTypes != nil)
   }
 
+  func testNovelties() {
+    var testNovelties: [Int]?
+
+    GW2API.instance.novelties()
+            .value { novelties in
+              testNovelties = novelties
+            }
+            .store(in: &bag)
+
+    expectToEventually(testNovelties != nil)
+  }
+
+  func testOutfits() {
+    var testOutfits: [Int]?
+
+    GW2API.instance.outfits()
+            .value { outfits in
+              testOutfits = outfits
+            }
+            .store(in: &bag)
+
+    expectToEventually(testOutfits != nil)
+  }
+
+  func testPVPHeroes() {
+    var testPVPHeroes: [Int]?
+
+    GW2API.instance.pvpHeroes()
+            .value { pvpHeroes in
+              testPVPHeroes = pvpHeroes
+            }
+            .store(in: &bag)
+
+    expectToEventually(testPVPHeroes != nil)
+  }
+
+  func testRaids() {
+    var testRaids: [String]?
+
+    GW2API.instance.raids()
+            .value { raids in
+              testRaids = raids
+            }
+            .store(in: &bag)
+
+    expectToEventually(testRaids != nil)
+  }
+
+  func testRecipes() {
+    var testRecipes: [Int]?
+
+    GW2API.instance.recipes()
+            .value { recipes in
+              testRecipes = recipes
+            }
+            .store(in: &bag)
+
+    expectToEventually(testRecipes != nil)
+  }
+
+  func testSkins() {
+    var testSkins: [Int]?
+
+    GW2API.instance.skins()
+            .value { skins in
+              testSkins = skins
+            }
+            .store(in: &bag)
+
+    expectToEventually(testSkins != nil)
+  }
+
+  func testTitles() {
+    var testTitles: [Int]?
+
+    GW2API.instance.titles()
+            .value { titles in
+              testTitles = titles
+            }
+            .store(in: &bag)
+
+    expectToEventually(testTitles != nil)
+  }
+
+  func testWallet() {
+    var testWallet: [Currency]?
+
+    GW2API.instance.wallet()
+            .value { wallet in
+              testWallet = wallet
+            }
+            .store(in: &bag)
+
+    expectToEventually(testWallet != nil)
+  }
+
+  func testWorldBosses() {
+    var testWorldBosses: [String]?
+
+    GW2API.instance.worldBosses()
+            .value { worldBosses in
+              testWorldBosses = worldBosses
+            }
+            .store(in: &bag)
+
+    expectToEventually(testWorldBosses != nil)
+  }
+
   static var allTests = [
     ("testAPIKey", testAPIKey),
     ("testAccount", testAccount),
@@ -306,5 +414,14 @@ final class GW2Tests: XCTestCase {
     ("testMounts", testMounts),
     ("testMountSkins", testMountSkins),
     ("testMountTypes", testMountTypes),
+    ("testNovelties", testNovelties),
+    ("testOutfits", testOutfits),
+    ("testPVPHeroes", testPVPHeroes),
+    ("testRaids", testRaids),
+    ("testRecipes", testRecipes),
+    ("testSkins", testSkins),
+    ("testTitles", testTitles),
+    ("testWallet", testWallet),
+    ("testWorldBosses", testWorldBosses)
   ]
 }

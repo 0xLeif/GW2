@@ -36,6 +36,15 @@ public class GW2API {
         case account_mounts
         case account_mounts_skins
         case account_mounts_types
+        case account_novelties
+        case account_outfits
+        case account_pvp_heroes
+        case account_raids
+        case account_recipes
+        case account_skins
+        case account_titles
+        case account_wallet
+        case account_worldbosses
     }
     
     public static var instance: GW2API = {
@@ -184,5 +193,41 @@ public extension GW2API {
 
     func mountTypes() -> AnyPublisher<[String], Error> {
         get(route: .account_mounts_types)
+    }
+
+    func novelties() -> AnyPublisher<[Int], Error> {
+        get(route: .account_novelties)
+    }
+
+    func outfits() -> AnyPublisher<[Int], Error> {
+        get(route: .account_outfits)
+    }
+
+    func pvpHeroes() -> AnyPublisher<[Int], Error> {
+        get(route: .account_pvp_heroes)
+    }
+
+    func raids() -> AnyPublisher<[String], Error> {
+        get(route: .account_raids)
+    }
+
+    func recipes() -> AnyPublisher<[Int], Error> {
+        get(route: .account_recipes)
+    }
+
+    func skins() -> AnyPublisher<[Int], Error> {
+        get(route: .account_skins)
+    }
+    
+    func titles() -> AnyPublisher<[Int], Error> {
+        get(route: .account_titles)
+    }
+
+    func wallet() -> AnyPublisher<[Currency], Error> {
+        get(route: .account_wallet)
+    }
+
+    func worldBosses() -> AnyPublisher<[String], Error> {
+        get(route: .account_worldbosses)
     }
 }
