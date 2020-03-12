@@ -43,6 +43,7 @@ public class GW2API {
         case account_recipes
         case account_skins
         case account_titles
+        case account_wallet
     }
     
     public static var instance: GW2API = {
@@ -219,5 +220,9 @@ public extension GW2API {
     
     func titles() -> AnyPublisher<[Int], Error> {
         get(route: .account_titles)
+    }
+
+    func wallet() -> AnyPublisher<[Currency], Error> {
+        get(route: .account_wallet)
     }
 }
