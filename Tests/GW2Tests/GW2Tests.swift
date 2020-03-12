@@ -294,6 +294,18 @@ final class GW2Tests: XCTestCase {
     expectToEventually(testNovelties != nil)
   }
 
+  func testOutfits() {
+    var testOutfits: [Int]?
+
+    GW2API.instance.outfits()
+            .value { outfits in
+              testOutfits = outfits
+            }
+            .store(in: &bag)
+
+    expectToEventually(testOutfits != nil)
+  }
+
   static var allTests = [
     ("testAPIKey", testAPIKey),
     ("testAccount", testAccount),
@@ -318,6 +330,7 @@ final class GW2Tests: XCTestCase {
     ("testMounts", testMounts),
     ("testMountSkins", testMountSkins),
     ("testMountTypes", testMountTypes),
-    ("testNovelties", testNovelties)
+    ("testNovelties", testNovelties),
+    ("testOutfits", testOutfits)
   ]
 }
