@@ -58,3 +58,7 @@ HTTP 404 will be returned if an endpoint does not exist, or all of the provided 
 
 
 # [Source GW2 API Wiki](https://wiki.guildwars2.com/wiki/API:2)
+
+## GitHub Supporters
+
+ [<img class="avatar" alt="suzyfendrick" src="https://avatars1.githubusercontent.com/u/25371717?s=460&u=34217047bbfd4912909cd5a85959544b6e49cc9f&v=4" width="72" height="72">](https://github.com/suzyfendrick)
